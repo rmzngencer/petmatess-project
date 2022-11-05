@@ -13,19 +13,62 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        BackgroundImage(),
+        Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Center(
+            child: Column(
+              children: const [
+                Padding(
+                  padding: EdgeInsets.all(50),
+                  child: TextField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'E-mail',
+                      hintText: 'Enter e-mail',
+                    ),
+                  ),
+                ),Padding(
+                  padding: EdgeInsets.all(50),
+                  child: TextField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Password',
+                      hintText: 'Enter Password',
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        )
+      ],
+    );
+  }
+}
+
+class BackgroundImage extends StatelessWidget {
+  const BackgroundImage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: ReusableWidgets.getAppBar(),
-       bottomNavigationBar: ReusableWidgets.getBottomNavigationBar(3),
-       body: Container(
-          height: height,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/images/Pattern.png"),
-              fit: BoxFit.cover,
-            ),
+      bottomNavigationBar: ReusableWidgets.getBottomNavigationBar(3),
+      body: Container(
+        height: height,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/Pattern.png"),
+            fit: BoxFit.cover,
           ),
         ),
-      );
+      ),
+    );
   }
 }
