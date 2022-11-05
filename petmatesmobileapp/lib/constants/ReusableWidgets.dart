@@ -7,17 +7,19 @@ class ReusableWidgets {
     return AppBar(
       titleSpacing: 0,
       leading: IconButton(
-        icon: Icon(Icons.menu),
+        icon: const Icon(Icons.menu),
         onPressed: () {},
+        padding: EdgeInsets.only(bottom: 5),
       ),
       title: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ImageIcon(AssetImage('assets/images/PetMatesLogo.png')),
+          const ImageIcon(AssetImage('assets/images/PetMatesLogo.png')),
           Text(
             ProjectStrings.appBarTitle,
-            style: TextStyle(
+            style: const TextStyle(
               fontFamily: 'Kalam',
-              fontSize: 20,
+              fontSize: 18,
             ),
           ),
         ],
@@ -25,7 +27,7 @@ class ReusableWidgets {
     );
   }
 
-  static getBottomNavigationBar(int selectedIndex){
+  static getBottomNavigationBar(int selectedIndex) {
     return BottomNavigationBar(
       selectedItemColor: ProjectColors.selectedNavColor,
       type: BottomNavigationBarType.fixed,
@@ -33,7 +35,7 @@ class ReusableWidgets {
       backgroundColor: ProjectColors.grey,
       showSelectedLabels: false,
       showUnselectedLabels: false,
-      iconSize: 26,
+      iconSize: 24,
       elevation: 25,
       currentIndex: selectedIndex,
       items: const <BottomNavigationBarItem>[
@@ -54,6 +56,60 @@ class ReusableWidgets {
           label: 'Account',
         ),
       ],
+    );
+  }
+
+  static getAppBarWithTabView() {
+    return AppBar(
+      bottom: TabBar(
+        padding: EdgeInsets.symmetric(horizontal: 8),
+        indicator: BoxDecoration(
+            borderRadius: BorderRadius.circular(50), color: Colors.grey),
+        splashBorderRadius: BorderRadius.circular(25),
+        tabs: [
+          TabBarTab('assets/images/happy-dog.png', ProjectStrings.dog),
+          TabBarTab('assets/images/happy-cat.png', ProjectStrings.cat),
+          TabBarTab('assets/images/happy-bird.png', ProjectStrings.bird),
+          TabBarTab('assets/images/happy-fish.png', ProjectStrings.fish),
+        ],
+      ),
+      titleSpacing: 0,
+      leading: IconButton(
+        icon: const Icon(Icons.menu),
+        onPressed: () {},
+        padding: EdgeInsets.only(bottom: 5),
+      ),
+      title: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const ImageIcon(AssetImage('assets/images/PetMatesLogo.png')),
+          Text(
+            ProjectStrings.appBarTitle,
+            style: const TextStyle(
+              fontFamily: 'Kalam',
+              fontSize: 18,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  static TabBarTab(String imageAsset, String text) {
+    return Tab(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Image.asset(imageAsset, width: 16),
+          Text(text,
+              style: const TextStyle(
+                color: ProjectColors.black,
+                fontFamily: 'Kadwa',
+                fontSize: 16,
+                fontWeight: FontWeight.w500
+              ))
+        ],
+      ),
     );
   }
 
