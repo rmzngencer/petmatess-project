@@ -16,6 +16,7 @@ class _LoginPageState extends State<LoginPage> {
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: ReusableWidgets.getAppBar(),
+       bottomNavigationBar: ReusableWidgets.getBottomNavigationBar(3),
        body: Container(
           height: height,
           decoration: BoxDecoration(

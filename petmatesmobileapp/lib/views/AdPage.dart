@@ -10,7 +10,6 @@ class AdPage extends StatelessWidget {
       appBar: ReusableWidgets.getAppBar(),
       bottomNavigationBar: ReusableWidgets.getBottomNavigationBar(0),
       body: Column(
-
       ),
     );
   }

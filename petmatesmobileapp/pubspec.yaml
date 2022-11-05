@@ -65,6 +65,7 @@ flutter:
      - assets/images/breed-nav.png
      - assets/images/pet-map-nav.png
      - assets/images/user-nav.png
+     - assets/images/Pattern.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
