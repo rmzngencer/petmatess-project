@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:swipebuttonflutter/swipebuttonflutter.dart';
 
 class LoginPage extends StatefulWidget {
   _LoginPageState createState() => _LoginPageState();
