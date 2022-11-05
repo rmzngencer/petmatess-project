@@ -1,4 +1,4 @@
 
 class ProjectStrings{
-  static String appBarTitle = "sadfasfsadgasd";
+  static String appBarTitle = "PetMates.com";
 }

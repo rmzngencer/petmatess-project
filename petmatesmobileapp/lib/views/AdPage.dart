@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:petmatesmobileapp/constants/ProjectStrings.dart';
+import 'package:petmatesmobileapp/constants/ReusableWidgets.dart';
 
 class AdPage extends StatelessWidget {
   const AdPage({Key? key}) : super(key: key);
@@ -7,31 +8,9 @@ class AdPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PetMatesAppBar(),
+      appBar: ReusableWidgets.getAppBar(),
       body: Column(
 
-      ),
-    );
-  }
-
-  AppBar PetMatesAppBar(){
-    return AppBar(
-      titleSpacing: 0,
-      leading: IconButton(
-        icon: Icon(Icons.menu),
-        onPressed: () {},
-      ),
-      title: Row(
-        children: [
-          ImageIcon(AssetImage('assets/images/PetMatesLogo.png')),
-          Text(
-            ProjectStrings.appBarTitle,
-            style: TextStyle(
-              fontFamily: 'Kalam',
-              fontSize: 20,
-            ),
-          ),
-        ],
       ),
     );
   }
