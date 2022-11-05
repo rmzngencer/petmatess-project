@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
           elevation: 0
         )
       ),
-      home:  AdPage(),
+      home: AdPage(),
     );
   }
 }

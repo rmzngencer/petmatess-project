@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:petmatesmobileapp/constants/ProjectStrings.dart';
 import 'package:petmatesmobileapp/constants/ReusableWidgets.dart';
 
 class AdPage extends StatelessWidget {
@@ -9,6 +8,7 @@ class AdPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: ReusableWidgets.getAppBar(),
+      bottomNavigationBar: ReusableWidgets.getBottomNavigationBar(0),
       body: Column(
 
       ),
