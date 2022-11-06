@@ -14,7 +14,7 @@ class ReusableWidgets {
       title: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const ImageIcon(AssetImage('assets/images/PetMatesLogo.png')),
+          ImageIcon(AssetImage(ProjectStrings.petMatesLogo)),
           Text(
             ProjectStrings.appBarTitle,
             style: const TextStyle(
@@ -38,21 +38,21 @@ class ReusableWidgets {
       iconSize: 24,
       elevation: 25,
       currentIndex: selectedIndex,
-      items: const <BottomNavigationBarItem>[
+      items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          icon: ImageIcon(AssetImage('assets/images/adopt-home-nav.png')),
+          icon: ImageIcon(AssetImage(ProjectStrings.homeNavImage)),
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: ImageIcon(AssetImage('assets/images/breed-nav.png')),
+          icon: ImageIcon(AssetImage(ProjectStrings.breedNavImage)),
           label: 'Breeds',
         ),
         BottomNavigationBarItem(
-          icon: ImageIcon(AssetImage('assets/images/pet-map-nav.png')),
+          icon: ImageIcon(AssetImage(ProjectStrings.petMapNavImage)),
           label: 'PetMap',
         ),
         BottomNavigationBarItem(
-          icon: ImageIcon(AssetImage('assets/images/user-nav.png')),
+          icon: ImageIcon(AssetImage(ProjectStrings.userNavImage)),
           label: 'Account',
         ),
       ],
@@ -62,15 +62,15 @@ class ReusableWidgets {
   static getAppBarWithTabView() {
     return AppBar(
       bottom: TabBar(
-        padding: EdgeInsets.symmetric(horizontal: 8),
+        padding: EdgeInsets.symmetric(horizontal: 16),
         indicator: BoxDecoration(
             borderRadius: BorderRadius.circular(50), color: Colors.grey),
         splashBorderRadius: BorderRadius.circular(25),
         tabs: [
-          TabBarTab('assets/images/happy-dog.png', ProjectStrings.dog),
-          TabBarTab('assets/images/happy-cat.png', ProjectStrings.cat),
-          TabBarTab('assets/images/happy-bird.png', ProjectStrings.bird),
-          TabBarTab('assets/images/happy-fish.png', ProjectStrings.fish),
+          TabBarTab(ProjectStrings.dogTabBarImage, ProjectStrings.dog),
+          TabBarTab(ProjectStrings.catTabBarImage, ProjectStrings.cat),
+          TabBarTab(ProjectStrings.birdTabBarImage, ProjectStrings.bird),
+          TabBarTab(ProjectStrings.fishTabBarImage, ProjectStrings.fish),
         ],
       ),
       titleSpacing: 0,
@@ -82,7 +82,7 @@ class ReusableWidgets {
       title: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const ImageIcon(AssetImage('assets/images/PetMatesLogo.png')),
+          ImageIcon(AssetImage(ProjectStrings.petMatesLogo)),
           Text(
             ProjectStrings.appBarTitle,
             style: const TextStyle(
