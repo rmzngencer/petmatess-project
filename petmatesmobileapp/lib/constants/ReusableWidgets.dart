@@ -62,9 +62,9 @@ class ReusableWidgets {
   static getAppBarWithTabView() {
     return AppBar(
       bottom: TabBar(
-        padding: EdgeInsets.symmetric(horizontal: 16),
+        padding: EdgeInsets.symmetric(horizontal: 25),
         indicator: BoxDecoration(
-            borderRadius: BorderRadius.circular(50), color: Colors.grey),
+            borderRadius: BorderRadius.circular(25), color: Colors.grey),
         splashBorderRadius: BorderRadius.circular(25),
         tabs: [
           TabBarTab(ProjectStrings.dogTabBarImage, ProjectStrings.dog),
@@ -100,13 +100,12 @@ class ReusableWidgets {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Image.asset(imageAsset, width: 16),
+          Image.asset(imageAsset, width: 16, height: 16,),
           Text(text,
               style: const TextStyle(
                 color: ProjectColors.black,
                 fontFamily: 'Kadwa',
-                fontSize: 16,
-                fontWeight: FontWeight.w500
+                fontSize: 12,
               ))
         ],
       ),

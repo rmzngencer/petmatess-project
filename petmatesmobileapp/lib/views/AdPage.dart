@@ -35,7 +35,7 @@ class AdPage extends StatelessWidget {
               Expanded(
                 flex: 45,
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 46, vertical: 18),
+                  padding: EdgeInsets.symmetric(horizontal: 42, vertical: 18),
                   child: ListView(
                     children: [
                       CardView(
@@ -51,17 +51,19 @@ class AdPage extends StatelessWidget {
                           ProjectStrings.petTestGenderName2,
                           ProjectStrings.petTestBirthday2),
                       CardView(
-                          ProjectStrings.petTestName3,
-                          ProjectStrings.testImage3,
-                          ProjectStrings.petTestAddress3,
-                          ProjectStrings.petTestGenderName3,
-                          ProjectStrings.petTestBirthday3,),
+                        ProjectStrings.petTestName3,
+                        ProjectStrings.testImage3,
+                        ProjectStrings.petTestAddress3,
+                        ProjectStrings.petTestGenderName3,
+                        ProjectStrings.petTestBirthday3,
+                      ),
                       CardView(
                         ProjectStrings.petTestName4,
                         ProjectStrings.testImage4,
                         ProjectStrings.petTestAddress4,
                         ProjectStrings.petTestGenderName4,
-                        ProjectStrings.petTestBirthday4,)
+                        ProjectStrings.petTestBirthday4,
+                      )
                     ],
                   ),
                 ),
@@ -105,25 +107,24 @@ class CardView extends StatelessWidget {
     return InkWell(
       onTap: () {},
       child: Card(
+        elevation: 1,
         color: ProjectColors.cardColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(14.0),
         ),
         child: Column(
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(14), topRight: Radius.circular(14)),
-              child: Image.asset(
-                petImage,
-                height: 190.0,
-                width: 500.0,
-                fit: BoxFit.cover,
+            imagePet(petImage),
+            ListTile(
+              title: Column(
+                children: [
+                  nameText(petName),
+                  addressText(petAddress),
+                  genderAndBirthdayTextWithIcons(petBirthDay, petGender),
+                ],
               ),
+              trailing: favIcon(),
             ),
-            nameText(petName),
-            addressText(petAddress),
-            GenderAndBirthdayTextWithIcons(petBirthDay, petGender),
           ],
         ),
       ),
@@ -140,20 +141,33 @@ class CardView extends StatelessWidget {
       ],
     );
   }
+
+  IconButton favIcon() {
+    return IconButton(
+        onPressed: () {},
+        icon: Image.asset(
+          ProjectStrings.favIcon,
+          width: 24,
+          height: 24,
+        ));
+  }
+
   Row addressText(String petAddress) {
     return Row(
       children: [
-        Text(
-          petAddress,
-          style: JejuGothicTextStyle(12)
-        ),
+        Text(petAddress, style: JejuGothicTextStyle(12)),
       ],
     );
   }
+
   Row genderTextwithIcon(String petGender) {
     return Row(
       children: [
-        Image.asset(returnGenderImage(petGender),width: 15,height: 15,),
+        Image.asset(
+          returnGenderImage(petGender),
+          width: 15,
+          height: 15,
+        ),
         Text(
           petGender,
           style: JejuGothicTextStyle(10),
@@ -161,43 +175,60 @@ class CardView extends StatelessWidget {
       ],
     );
   }
+
   Row birthdayTextwithIcon(String petBirthDay) {
     return Row(
-      children:[
-        Image.asset(ProjectStrings.birthdayIcon,width: 15,height: 15,),
-        Text(
-            petBirthDay,
-            style: JejuGothicTextStyle(10)
+      children: [
+        Image.asset(
+          ProjectStrings.birthdayIcon,
+          width: 15,
+          height: 15,
         ),
+        Text(petBirthDay, style: JejuGothicTextStyle(10)),
       ],
     );
   }
-  Row GenderAndBirthdayTextWithIcons(String petBirthDay,String petGender) {
-    return Row(
-      children:[
-        genderTextwithIcon(petGender),
-        padding20Right(),
-        birthdayTextwithIcon(petBirthDay),
-    ]
-    );
+
+  Row genderAndBirthdayTextWithIcons(String petBirthDay, String petGender) {
+    return Row(children: [
+      genderTextwithIcon(petGender),
+      padding20Right(),
+      birthdayTextwithIcon(petBirthDay),
+    ]);
   }
-  TextStyle JejuGothicTextStyle(double fontSize){
+
+  TextStyle JejuGothicTextStyle(double fontSize) {
     return TextStyle(
       fontFamily: 'JejuGothic',
       fontWeight: FontWeight.w400,
       fontSize: fontSize,
     );
   }
-  String returnGenderImage(String petGender){
-    if (petGender == 'Male'){
+
+  String returnGenderImage(String petGender) {
+    if (petGender == 'Male') {
       return ProjectStrings.maleIcon;
-    }else{
+    } else {
       return ProjectStrings.femaleIcon;
     }
   }
-  Padding padding20Right(){
+
+  Padding padding20Right() {
     return Padding(
       padding: EdgeInsets.only(right: 20),
+    );
+  }
+
+  ClipRRect imagePet(String petImage) {
+    return ClipRRect(
+      borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(14), topRight: Radius.circular(14)),
+      child: Image.asset(
+        petImage,
+        height: 190.0,
+        width: 300.0,
+        fit: BoxFit.cover,
+      ),
     );
   }
 }
