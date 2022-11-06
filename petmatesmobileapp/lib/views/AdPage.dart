@@ -141,7 +141,7 @@ class CardView extends StatelessWidget {
     );
   }
 
-  Row nameText(String petName) {
+  nameText(String petName) {
     return Row(
       children: [
         Text(
@@ -152,7 +152,7 @@ class CardView extends StatelessWidget {
     );
   }
 
-  IconButton favIcon() {
+  favIcon() {
     return IconButton(
         onPressed: () {},
         icon: Image.asset(
@@ -162,7 +162,7 @@ class CardView extends StatelessWidget {
         ));
   }
 
-  Row addressText(String petAddress) {
+  addressText(String petAddress) {
     return Row(
       children: [
         Text(petAddress, style: JejuGothicTextStyle(12)),
@@ -170,7 +170,7 @@ class CardView extends StatelessWidget {
     );
   }
 
-  Row genderTextwithIcon(String petGender) {
+  genderTextwithIcon(String petGender) {
     return Row(
       children: [
         Image.asset(
@@ -186,7 +186,7 @@ class CardView extends StatelessWidget {
     );
   }
 
-  Row birthdayTextwithIcon(String petBirthDay) {
+  birthdayTextwithIcon(String petBirthDay) {
     return Row(
       children: [
         Image.asset(
@@ -199,7 +199,7 @@ class CardView extends StatelessWidget {
     );
   }
 
-  Row genderAndBirthdayTextWithIcons(String petBirthDay, String petGender) {
+  genderAndBirthdayTextWithIcons(String petBirthDay, String petGender) {
     return Row(children: [
       genderTextwithIcon(petGender),
       padding20Right(),
@@ -207,7 +207,7 @@ class CardView extends StatelessWidget {
     ]);
   }
 
-  TextStyle JejuGothicTextStyle(double fontSize) {
+  JejuGothicTextStyle(double fontSize) {
     return TextStyle(
       fontFamily: 'JejuGothic',
       fontWeight: FontWeight.w400,
@@ -215,7 +215,7 @@ class CardView extends StatelessWidget {
     );
   }
 
-  String returnGenderImage(String petGender) {
+  returnGenderImage(String petGender) {
     if (petGender == 'Male') {
       return ProjectStrings.maleIcon;
     } else {
@@ -223,13 +223,13 @@ class CardView extends StatelessWidget {
     }
   }
 
-  Padding padding20Right() {
+  padding20Right() {
     return Padding(
       padding: EdgeInsets.only(right: 20),
     );
   }
 
-  ClipRRect imagePet(String petImage) {
+   imagePet(String petImage) {
     return ClipRRect(
       borderRadius: BorderRadius.only(
           topLeft: Radius.circular(14), topRight: Radius.circular(14)),
@@ -241,4 +241,5 @@ class CardView extends StatelessWidget {
       ),
     );
   }
+
 }
