@@ -11,6 +11,16 @@ class AdPage extends StatelessWidget {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          elevation: 0,
+          backgroundColor: ProjectColors.transparent,
+          onPressed: () {},
+          child: Image.asset(ProjectStrings.addPetFloatingButton,
+              color: ProjectColors.floatingActionButtonTransparency,
+              colorBlendMode: BlendMode.modulate,
+          width: 60,
+          height: 60,),
+        ),
         appBar: ReusableWidgets.getAppBarWithTabView(),
         bottomNavigationBar: ReusableWidgets.getBottomNavigationBar(0),
         body: TabBarView(children: [

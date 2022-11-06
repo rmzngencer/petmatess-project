@@ -46,6 +46,7 @@ class ProjectStrings{
   static String favIcon = "assets/images/fav-icon.png";
   static String femaleIcon = "assets/images/female-icon.png";
   static String maleIcon = "assets/images/male-icon.png";
+  static String addPetFloatingButton = "assets/images/add-pet-floating-button.png";
 
 
 

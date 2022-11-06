@@ -7,4 +7,5 @@ class ProjectColors{
   static const Color grey = Color.fromARGB(255, 239, 239, 239);
   static const Color selectedNavColor = Color.fromARGB(65, 0, 0, 0);
   static const Color cardColor = Color.fromARGB(255, 243, 243, 243);
+  static const Color floatingActionButtonTransparency = Color.fromRGBO(255, 255, 255, 0.8509803921568627);
 }
