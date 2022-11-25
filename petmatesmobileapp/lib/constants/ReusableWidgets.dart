@@ -191,6 +191,11 @@ class ReusableWidgets {
       padding: EdgeInsets.only(top: 20),
     );
   }
+  static padding40top(){
+    return Padding(
+      padding: EdgeInsets.only(top: 40),
+    );
+  }
 
   static padding5top(){
     return Padding(

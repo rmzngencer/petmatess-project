@@ -89,6 +89,8 @@ flutter:
      - assets/images/pet-gender-info.png
      - assets/images/pet-location-info.png
      - assets/images/pet-marker.png
+     - assets/images/pet-add-report.png
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

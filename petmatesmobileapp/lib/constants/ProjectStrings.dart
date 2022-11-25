@@ -55,4 +55,5 @@ class ProjectStrings{
   static String petGenderInfoIcon = "assets/images/pet-gender-info.png";
   static String petLocationInfoIcon = "assets/images/pet-location-info.png";
   static String petMarkerIcon = "assets/images/pet-marker.png";
+  static String petAddReportImage = "assets/images/pet-add-report.png";
 }
