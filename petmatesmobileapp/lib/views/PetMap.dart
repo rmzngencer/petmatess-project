@@ -56,7 +56,7 @@ class _PetMapState extends State<PetMap> {
       width: MediaQuery.of(context).size.width, // or use fixed size like 200
       height: 550,
       child: GoogleMap(
-        onLongPress: (LatLng geo) {
+        onTap: (LatLng geo) {
           setState(() {
             _selectedAnyPointOnMap = true;
           });
@@ -84,7 +84,7 @@ class _PetMapState extends State<PetMap> {
 
   addMarkers(LatLng geo) async {
     final Uint8List markerIcon =
-        await getBytesFromAsset(ProjectStrings.petMarkerIcon, 200);
+        await getBytesFromAsset(ProjectStrings.petMarkerIcon, 120);
     markers.add(markerWidget(geo, markerIcon));
     setState(() {
       //refresh UI

@@ -81,6 +81,7 @@ class _myHomePageStateState extends State<myHomePageState> {
         ],
       ),
       body: PageView(
+        physics: NeverScrollableScrollPhysics(),
         onPageChanged: (newIndex){
           setState(() {
             _currentIndex = newIndex;
