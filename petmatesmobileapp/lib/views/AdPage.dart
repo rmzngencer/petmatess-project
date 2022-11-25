@@ -37,7 +37,7 @@ class _AdPageState extends State<AdPage> {
           ),
         ),
         appBar: ReusableWidgets.getAppBarWithTabView(),
-        bottomNavigationBar: ReusableWidgets.getBottomNavigationBar(0),
+        bottomNavigationBar: getBottomNavigationBar(index: 0),
         body: TabBarView(children: [
           Row(
             children: [
@@ -365,22 +365,18 @@ class CardViewColumnOne extends StatelessWidget {
                 content: AdvertDescription(
                     petName, petAddress, petGender, petBirthDay, "Pug"),
                 actions: [
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        textStyle: TextStyle(fontFamily: 'Jua', fontSize: 25),
-                        backgroundColor: ProjectColors.purple,
-                      ),
-                      onPressed: () {
-                        Navigator.pop(context);
-                        showDialog(
-                          context: context,
-                          builder: (context) => AlertDialog(
-                            title: Text("Adopt $petName"),
-                            content: AdvertOwner(),
-                          ),
-                        );
-                      },
-                      child: Center(child: Text("Adopt")))
+                  Center(
+                    child: ReusableWidgets.buttonPurpleElevated("Adopt",300, () {
+                Navigator.pop(context);
+                showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    title: Text("Adopt $petName"),
+                    content: AdvertOwner(),
+                  ),
+                );
+                    }),
+                  )
                 ],
               ),
         );

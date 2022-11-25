@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:petmatesmobileapp/constants/ProjectColors.dart';
 import 'package:petmatesmobileapp/constants/ProjectStrings.dart';
 import 'package:petmatesmobileapp/constants/ReusableWidgets.dart';
 
@@ -45,7 +44,7 @@ class _AdAdvertState extends State<AdAdvert> {
     return Scaffold(
       appBar: ReusableWidgets.getAppBar(),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: EdgeInsets.symmetric(horizontal: 15),
         child: ListView(
           children: [
             ReusableWidgets.divider('Images'),
@@ -69,7 +68,7 @@ class _AdAdvertState extends State<AdAdvert> {
                 "Address Description", addressDescriptionController,
                 maxLines: 3),
             ReusableWidgets.padding20top(),
-            shareButton(),
+            ReusableWidgets.buttonPurpleElevated("Share", 200, () { })
           ],
         ),
       ),
@@ -231,17 +230,6 @@ class _AdAdvertState extends State<AdAdvert> {
     );
   }
 
-  shareButton() {
-    return ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          textStyle: TextStyle(fontFamily: 'Jua', fontSize: 25),
-          backgroundColor: ProjectColors.purple,
-        ),
-        onPressed: () {},
-        child: Text(
-          "Share",
-        ));
-  }
 
   imagePicker(double heightImage) {
     print(heightImage);

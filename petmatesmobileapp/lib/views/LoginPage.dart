@@ -17,6 +17,8 @@ class _LoginPageState extends State<LoginPage> {
       children: [
         BackgroundImage(),
         Scaffold(
+          appBar: ReusableWidgets.getAppBar(),
+          bottomNavigationBar: getBottomNavigationBar(index: 3),
           backgroundColor: Colors.transparent,
           body: Center(
             child: Column(
@@ -58,8 +60,6 @@ class BackgroundImage extends StatelessWidget {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: ReusableWidgets.getAppBar(),
-      bottomNavigationBar: ReusableWidgets.getBottomNavigationBar(3),
       body: Container(
         height: height,
         decoration: const BoxDecoration(

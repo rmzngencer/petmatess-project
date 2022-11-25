@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:petmatesmobileapp/views/AdAdvert.dart';
 import 'package:petmatesmobileapp/views/LoginPage.dart';
 import 'package:petmatesmobileapp/views/PetMap.dart';
 import 'constants/ProjectColors.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
           elevation: 0
         )
       ),
-      home: PetMap(),
+      home: AdPage(),
     );
   }
 }

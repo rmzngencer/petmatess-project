@@ -1,8 +1,72 @@
 import 'package:flutter/material.dart';
 import 'package:petmatesmobileapp/constants/ProjectColors.dart';
+import 'package:petmatesmobileapp/views/AdPage.dart';
+import 'package:petmatesmobileapp/views/LoginPage.dart';
+import 'package:petmatesmobileapp/views/PetMap.dart';
 import 'ProjectStrings.dart';
 
+class getBottomNavigationBar extends StatefulWidget {
+  const getBottomNavigationBar({Key? key, this.index}) : super(key: key);
+  final index;
+
+  @override
+  State<getBottomNavigationBar> createState() => _getBottomNavigationBarState();
+}
+
+class _getBottomNavigationBarState extends State<getBottomNavigationBar> {
+  final _listPage = [
+    const AdPage(),
+    //const Page2(),
+    const PetMap(),
+    const LoginPage(),
+  ];
+  final _controller = PageController();
+  int _indexSelected = 0;
+  void _onSelected(int index) {
+    setState(() {
+      _indexSelected = index;
+    });
+  }
+  @override
+  Widget build(BuildContext context) {
+    return BottomNavigationBar(
+      onTap: (currentIndex){
+            (index) => _controller.animateToPage(index,
+            duration: const Duration(milliseconds: 200), curve: Curves.easeIn);
+      },
+      selectedItemColor: ProjectColors.selectedNavColor,
+      type: BottomNavigationBarType.fixed,
+      unselectedItemColor: ProjectColors.black,
+      backgroundColor: ProjectColors.grey,
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
+      iconSize: 24,
+      elevation: 25,
+      currentIndex: widget.index,
+      items: <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: ImageIcon(AssetImage(ProjectStrings.homeNavImage)),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: ImageIcon(AssetImage(ProjectStrings.breedNavImage)),
+          label: 'Breeds',
+        ),
+        BottomNavigationBarItem(
+          icon: ImageIcon(AssetImage(ProjectStrings.petMapNavImage)),
+          label: 'PetMap',
+        ),
+        BottomNavigationBarItem(
+          icon: ImageIcon(AssetImage(ProjectStrings.userNavImage)),
+          label: 'Account',
+        ),
+      ],
+    );
+  }
+}
+
 class ReusableWidgets {
+ 
   static getAppBar() {
     return AppBar(
       titleSpacing: 0,
@@ -24,38 +88,6 @@ class ReusableWidgets {
           ),
         ],
       ),
-    );
-  }
-
-  static getBottomNavigationBar(int selectedIndex) {
-    return BottomNavigationBar(
-      selectedItemColor: ProjectColors.selectedNavColor,
-      type: BottomNavigationBarType.fixed,
-      unselectedItemColor: ProjectColors.black,
-      backgroundColor: ProjectColors.grey,
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
-      iconSize: 24,
-      elevation: 25,
-      currentIndex: selectedIndex,
-      items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: ImageIcon(AssetImage(ProjectStrings.homeNavImage)),
-          label: 'Home',
-        ),
-        BottomNavigationBarItem(
-          icon: ImageIcon(AssetImage(ProjectStrings.breedNavImage)),
-          label: 'Breeds',
-        ),
-        BottomNavigationBarItem(
-          icon: ImageIcon(AssetImage(ProjectStrings.petMapNavImage)),
-          label: 'PetMap',
-        ),
-        BottomNavigationBarItem(
-          icon: ImageIcon(AssetImage(ProjectStrings.userNavImage)),
-          label: 'Account',
-        ),
-      ],
     );
   }
 
@@ -184,5 +216,16 @@ class ReusableWidgets {
     return Padding(
       padding: EdgeInsets.only(right: 5),
     );
+  }
+
+  static buttonPurpleElevated(String title,double width, onPressed){
+    return ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          fixedSize: Size.fromWidth(width),
+          textStyle: TextStyle(fontFamily: 'Jua', fontSize: 25),
+          backgroundColor: ProjectColors.purple,
+        ),
+        onPressed: onPressed,
+        child: Center(child: Text(title)));
   }
 }
