@@ -75,6 +75,7 @@ class ReusableWidgets {
       ),
       titleSpacing: 0,
       leading: IconButton(
+        splashRadius: 1,
         icon: const Icon(Icons.menu),
         onPressed: () {},
         padding: EdgeInsets.only(bottom: 5),
@@ -100,7 +101,11 @@ class ReusableWidgets {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Image.asset(imageAsset, width: 16, height: 16,),
+          Image.asset(
+            imageAsset,
+            width: 16,
+            height: 16,
+          ),
           Text(text,
               style: const TextStyle(
                 color: ProjectColors.black,
@@ -112,4 +117,72 @@ class ReusableWidgets {
     );
   }
 
+  static editText(String label, TextEditingController textController, {int maxLines=1}) {
+    return TextField(
+      maxLines: maxLines,
+      controller: textController,
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.all(5),
+        hintText: label,
+        border: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.purple,
+            width: 0.1,
+          ),
+        )
+      ),
+    );
+  }
+
+  static divider(String titleText){
+    return Container(
+      width:125,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            titleText,
+            style: TextStyle(
+            fontFamily: 'Kalam',
+              fontSize: 15,
+          ),),
+          Divider(
+            thickness: 1,
+            color: ProjectColors.black,
+          ),
+        ],
+      ),
+    );
+  }
+
+  static padding20Right() {
+    return Padding(
+      padding: EdgeInsets.only(right: 20),
+    );
+  }
+
+
+  static padding20top(){
+    return Padding(
+      padding: EdgeInsets.only(top: 20),
+    );
+  }
+
+  static padding5top(){
+    return Padding(
+      padding: EdgeInsets.only(top: 5),
+    );
+  }
+
+  static padding10Top() {
+    return Padding(
+      padding: EdgeInsets.only(top: 10),
+    );
+  }
+
+  static padding5Right() {
+    return Padding(
+      padding: EdgeInsets.only(right: 5),
+    );
+  }
 }

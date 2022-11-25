@@ -47,8 +47,12 @@ class ProjectStrings{
   static String femaleIcon = "assets/images/female-icon.png";
   static String maleIcon = "assets/images/male-icon.png";
   static String addPetFloatingButton = "assets/images/add-pet-floating-button.png";
-
-
-
-
+  static String dropDownIcon = "assets/images/dropDownIcon.png";
+  static String addPetImageBlack = "assets/images/add-pet-black.png";
+  static String fourSquareIcon = "assets/images/four_square.png";
+  static String petBirthdayInfoIcon = "assets/images/pet-birthday-info.png";
+  static String petBreedInfoIcon = "assets/images/pet-breed-info.png";
+  static String petGenderInfoIcon = "assets/images/pet-gender-info.png";
+  static String petLocationInfoIcon = "assets/images/pet-location-info.png";
+  static String petMarkerIcon = "assets/images/pet-marker.png";
 }
