@@ -18,7 +18,6 @@ class _LoginPageState extends State<LoginPage> {
         BackgroundImage(),
         Scaffold(
           appBar: ReusableWidgets.getAppBar(),
-          bottomNavigationBar: getBottomNavigationBar(index: 3),
           backgroundColor: Colors.transparent,
           body: Center(
             child: Column(

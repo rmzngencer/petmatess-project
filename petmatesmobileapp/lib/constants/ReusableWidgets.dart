@@ -14,13 +14,6 @@ class getBottomNavigationBar extends StatefulWidget {
 }
 
 class _getBottomNavigationBarState extends State<getBottomNavigationBar> {
-  final _listPage = [
-    const AdPage(),
-    //const Page2(),
-    const PetMap(),
-    const LoginPage(),
-  ];
-  final _controller = PageController();
   int _indexSelected = 0;
   void _onSelected(int index) {
     setState(() {
@@ -30,9 +23,8 @@ class _getBottomNavigationBarState extends State<getBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      onTap: (currentIndex){
-            (index) => _controller.animateToPage(index,
-            duration: const Duration(milliseconds: 200), curve: Curves.easeIn);
+      onTap: (selectedIndex){
+        _onSelected(selectedIndex);
       },
       selectedItemColor: ProjectColors.selectedNavColor,
       type: BottomNavigationBarType.fixed,
@@ -42,7 +34,7 @@ class _getBottomNavigationBarState extends State<getBottomNavigationBar> {
       showUnselectedLabels: false,
       iconSize: 24,
       elevation: 25,
-      currentIndex: widget.index,
+      currentIndex: _indexSelected,
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: ImageIcon(AssetImage(ProjectStrings.homeNavImage)),

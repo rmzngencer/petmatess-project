@@ -25,7 +25,6 @@ class _PetMapState extends State<PetMap> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const getBottomNavigationBar(index: 2),
       appBar: ReusableWidgets.getAppBar(),
       body: Container(
         child: Column(

@@ -37,7 +37,6 @@ class _AdPageState extends State<AdPage> {
           ),
         ),
         appBar: ReusableWidgets.getAppBarWithTabView(),
-        bottomNavigationBar: getBottomNavigationBar(index: 0),
         body: TabBarView(children: [
           Row(
             children: [
