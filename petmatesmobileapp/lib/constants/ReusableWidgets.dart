@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:petmatesmobileapp/constants/ProjectColors.dart';
-import 'package:petmatesmobileapp/views/AdPage.dart';
-import 'package:petmatesmobileapp/views/LoginPage.dart';
-import 'package:petmatesmobileapp/views/PetMap.dart';
 import 'ProjectStrings.dart';
 
 class getBottomNavigationBar extends StatefulWidget {
@@ -59,12 +56,14 @@ class _getBottomNavigationBarState extends State<getBottomNavigationBar> {
 
 class ReusableWidgets {
  
-  static getAppBar() {
+  static getAppBar(BuildContext context) {
     return AppBar(
       titleSpacing: 0,
       leading: IconButton(
         icon: const Icon(Icons.menu),
-        onPressed: () {},
+        onPressed: () {
+          Scaffold.of(context).openDrawer();
+        },
         padding: EdgeInsets.only(bottom: 5),
       ),
       title: Row(
@@ -83,7 +82,7 @@ class ReusableWidgets {
     );
   }
 
-  static getAppBarWithTabView() {
+  static getAppBarWithTabView(BuildContext context) {
     return AppBar(
       bottom: TabBar(
         padding: EdgeInsets.symmetric(horizontal: 25),
@@ -101,7 +100,9 @@ class ReusableWidgets {
       leading: IconButton(
         splashRadius: 1,
         icon: const Icon(Icons.menu),
-        onPressed: () {},
+        onPressed: () {
+          Scaffold.of(context).openDrawer();
+        },
         padding: EdgeInsets.only(bottom: 5),
       ),
       title: Row(
@@ -168,7 +169,7 @@ class ReusableWidgets {
             titleText,
             style: TextStyle(
             fontFamily: 'Kalam',
-              fontSize: 15,
+              fontSize: 16,
           ),),
           Divider(
             thickness: 1,

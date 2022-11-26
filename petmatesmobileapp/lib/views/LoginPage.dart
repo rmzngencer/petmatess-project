@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:petmatesmobileapp/constants/ReusableWidgets.dart';
 
@@ -17,7 +15,7 @@ class _LoginPageState extends State<LoginPage> {
       children: [
         BackgroundImage(),
         Scaffold(
-          appBar: ReusableWidgets.getAppBar(),
+          appBar: ReusableWidgets.getAppBar(context),
           backgroundColor: Colors.transparent,
           body: Center(
             child: Column(

@@ -22,8 +22,8 @@ class _AdAdvertState extends State<AdAdvert> {
     final DateTime? picked = await showDatePicker(
         context: context,
         initialDate: selectedDate,
-        firstDate: DateTime(2015, 8),
-        lastDate: DateTime(2101));
+        firstDate: DateTime(1990, 1),
+        lastDate: DateTime.now());
     if (picked != null && picked != selectedDate) {
       setState(() {
         selectedDate = picked;
@@ -42,7 +42,7 @@ class _AdAdvertState extends State<AdAdvert> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ReusableWidgets.getAppBar(),
+      appBar: ReusableWidgets.getAppBar(context),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 15),
         child: ListView(
@@ -51,7 +51,7 @@ class _AdAdvertState extends State<AdAdvert> {
             imagePicker(heightImage!),
             ReusableWidgets.padding20top(),
             ReusableWidgets.divider('Pet Name'),
-            ReusableWidgets.editText("Pet Name", petNameController),
+            ReusableWidgets.editText("", petNameController),
             ReusableWidgets.padding20top(),
             editTextGenderAndBirthDate(),
             ReusableWidgets.padding20top(),
@@ -59,13 +59,13 @@ class _AdAdvertState extends State<AdAdvert> {
             ReusableWidgets.padding20top(),
             ReusableWidgets.divider('Description'),
             ReusableWidgets.editText(
-                "Advert Description", advertDescriptionController,
+                "", advertDescriptionController,
                 maxLines: 3),
             ReusableWidgets.padding20top(),
             editTextCityAndDisctrict(),
             ReusableWidgets.padding20top(),
             ReusableWidgets.editText(
-                "Address Description", addressDescriptionController,
+                "", addressDescriptionController,
                 maxLines: 3),
             ReusableWidgets.padding20top(),
             ReusableWidgets.buttonPurpleElevated("Share", 200, () { })
@@ -97,7 +97,9 @@ class _AdAdvertState extends State<AdAdvert> {
             value: selectedGender,
             items: genderItems
                 .map((item) =>
-                    DropdownMenuItem<String>(value: item, child: Text(item)))
+                    DropdownMenuItem<String>(value: item, child: Text(item, style: TextStyle(
+                      fontFamily: 'Kalam'
+                    ),)))
                 .toList(),
             onChanged: (item) => setState(() => selectedGender = item),
           ),
@@ -113,9 +115,19 @@ class _AdAdvertState extends State<AdAdvert> {
         SizedBox(
           width: 120,
           child: TextField(
-              decoration: const InputDecoration(
-                icon: Icon(Icons.calendar_today),
-                labelText: "Birth Date",
+              decoration: InputDecoration(
+                hintStyle: TextStyle(
+                  fontSize:  12
+                ),
+                icon: Icon(Icons.calendar_month_outlined),
+                contentPadding: EdgeInsets.all(5),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.purple,
+                    width: 0.1,
+                  ),
+                ),
+                hintText: birthDateHintText(),
               ),
               readOnly: true,
               onTap: () async {
@@ -148,7 +160,7 @@ class _AdAdvertState extends State<AdAdvert> {
             value: selectedPetType,
             items: petTypeItems
                 .map((item) =>
-                    DropdownMenuItem<String>(value: item, child: Text(item)))
+                    DropdownMenuItem<String>(value: item, child: Text(item, style: TextStyle(fontFamily: 'Kalam'),)))
                 .toList(),
             onChanged: (item) => setState(() => selectedPetType = item),
           ),
@@ -169,7 +181,7 @@ class _AdAdvertState extends State<AdAdvert> {
             value: selectedPetType,
             items: petTypeItems
                 .map((item) =>
-                    DropdownMenuItem<String>(value: item, child: Text(item)))
+                    DropdownMenuItem<String>(value: item, child: Text(item, style: TextStyle(fontFamily: 'Kalam'),)))
                 .toList(),
             onChanged: (item) => setState(() => selectedPetType = item),
           ),
@@ -200,7 +212,7 @@ class _AdAdvertState extends State<AdAdvert> {
             value: selectedPetType,
             items: petTypeItems
                 .map((item) =>
-                    DropdownMenuItem<String>(value: item, child: Text(item)))
+                    DropdownMenuItem<String>(value: item, child: Text(item, style: TextStyle(fontFamily: 'Kalam'),)))
                 .toList(),
             onChanged: (item) => setState(() => selectedPetType = item),
           ),
@@ -221,7 +233,7 @@ class _AdAdvertState extends State<AdAdvert> {
             value: selectedPetType,
             items: petTypeItems
                 .map((item) =>
-                    DropdownMenuItem<String>(value: item, child: Text(item)))
+                    DropdownMenuItem<String>(value: item, child: Text(item, style: TextStyle(fontFamily: 'Kalam'),)))
                 .toList(),
             onChanged: (item) => setState(() => selectedPetType = item),
           ),
@@ -248,7 +260,7 @@ class _AdAdvertState extends State<AdAdvert> {
             child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 4, mainAxisSpacing: 5,crossAxisSpacing: 5),
-                itemCount: multipleImages!.length,
+                itemCount: multipleImages.length,
                 itemBuilder: (context, index) {
                   return Image.file(File(
                     multipleImages[index].path),
@@ -264,9 +276,9 @@ class _AdAdvertState extends State<AdAdvert> {
 
   void selectImages() async {
     List<XFile>? picked = await _picker.pickMultiImage();
-    if (picked!.isNotEmpty) {
+    if (picked.isNotEmpty) {
       setState(() {
-        multipleImages = picked!.map((e) => File(e.path)).toList();
+        multipleImages = picked.map((e) => File(e.path)).toList();
         if (multipleImages.length > 0){
           heightImage = 160.0;
         }
@@ -274,6 +286,14 @@ class _AdAdvertState extends State<AdAdvert> {
           heightImage = 250.0;
         }
       });
+    }
+  }
+
+  String birthDateHintText() {
+    if (selectedDate == null){
+      return DateTime.now().toString();
+    }else{
+      return ('${selectedDate.year} -' + '${selectedDate.month} -' + '${selectedDate.day}');
     }
   }
 }

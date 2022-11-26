@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:petmatesmobileapp/constants/ReusableWidgets.dart';
-import 'package:petmatesmobileapp/views/AdAdvert.dart';
 import 'package:petmatesmobileapp/views/LoginPage.dart';
 import 'package:petmatesmobileapp/views/PetMap.dart';
 import 'package:petmatesmobileapp/views/PetNews.dart';
@@ -48,6 +46,36 @@ class _myHomePageStateState extends State<myHomePageState> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: [
+             DrawerHeader(
+
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Center(
+                child: Column(
+                  children: [
+                    Image.asset(ProjectStrings.petMatesLogo, width: 100,),
+                    Text('PetMates.com'),
+                  ],
+                ),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.star),
+              title: const Text('About Us'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+              },
+            ),
+          ],
+        ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (selectedIndex){
           _pageController.animateToPage(selectedIndex, duration: Duration(milliseconds: 250), curve: Curves.ease);

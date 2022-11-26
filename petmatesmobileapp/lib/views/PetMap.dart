@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -30,7 +29,7 @@ class _PetMapState extends State<PetMap> {
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        appBar: ReusableWidgets.getAppBar(),
+        appBar: ReusableWidgets.getAppBar(context),
         body: SingleChildScrollView(
           child: Container(
             child: Column(
@@ -118,7 +117,7 @@ class _PetMapState extends State<PetMap> {
               actions: [
                 Center(
                     child:
-                        ReusableWidgets.buttonPurpleElevated("Add", 150, null))
+                        ReusableWidgets.buttonPurpleElevated("Add", 150, () => null))
               ],
             ));
   }
