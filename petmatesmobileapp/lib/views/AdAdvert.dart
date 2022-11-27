@@ -44,7 +44,7 @@ class _AdAdvertState extends State<AdAdvert> {
     return Scaffold(
       appBar: ReusableWidgets.getAppBar(context),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         child: ListView(
           children: [
             ReusableWidgets.divider('Images'),
@@ -97,7 +97,7 @@ class _AdAdvertState extends State<AdAdvert> {
             value: selectedGender,
             items: genderItems
                 .map((item) =>
-                    DropdownMenuItem<String>(value: item, child: Text(item, style: TextStyle(
+                    DropdownMenuItem<String>(value: item, child: Text(item, style: const TextStyle(
                       fontFamily: 'Kalam'
                     ),)))
                 .toList(),
@@ -116,12 +116,12 @@ class _AdAdvertState extends State<AdAdvert> {
           width: 120,
           child: TextField(
               decoration: InputDecoration(
-                hintStyle: TextStyle(
+                hintStyle: const TextStyle(
                   fontSize:  12
                 ),
-                icon: Icon(Icons.calendar_month_outlined),
-                contentPadding: EdgeInsets.all(5),
-                border: OutlineInputBorder(
+                icon: const Icon(Icons.calendar_month_outlined),
+                contentPadding: const EdgeInsets.all(5),
+                border: const OutlineInputBorder(
                   borderSide: BorderSide(
                     color: Colors.purple,
                     width: 0.1,
@@ -160,7 +160,7 @@ class _AdAdvertState extends State<AdAdvert> {
             value: selectedPetType,
             items: petTypeItems
                 .map((item) =>
-                    DropdownMenuItem<String>(value: item, child: Text(item, style: TextStyle(fontFamily: 'Kalam'),)))
+                    DropdownMenuItem<String>(value: item, child: Text(item, style: const TextStyle(fontFamily: 'Kalam'),)))
                 .toList(),
             onChanged: (item) => setState(() => selectedPetType = item),
           ),
@@ -181,7 +181,7 @@ class _AdAdvertState extends State<AdAdvert> {
             value: selectedPetType,
             items: petTypeItems
                 .map((item) =>
-                    DropdownMenuItem<String>(value: item, child: Text(item, style: TextStyle(fontFamily: 'Kalam'),)))
+                    DropdownMenuItem<String>(value: item, child: Text(item, style: const TextStyle(fontFamily: 'Kalam'),)))
                 .toList(),
             onChanged: (item) => setState(() => selectedPetType = item),
           ),
@@ -212,7 +212,7 @@ class _AdAdvertState extends State<AdAdvert> {
             value: selectedPetType,
             items: petTypeItems
                 .map((item) =>
-                    DropdownMenuItem<String>(value: item, child: Text(item, style: TextStyle(fontFamily: 'Kalam'),)))
+                    DropdownMenuItem<String>(value: item, child: Text(item, style: const TextStyle(fontFamily: 'Kalam'),)))
                 .toList(),
             onChanged: (item) => setState(() => selectedPetType = item),
           ),
@@ -233,7 +233,7 @@ class _AdAdvertState extends State<AdAdvert> {
             value: selectedPetType,
             items: petTypeItems
                 .map((item) =>
-                    DropdownMenuItem<String>(value: item, child: Text(item, style: TextStyle(fontFamily: 'Kalam'),)))
+                    DropdownMenuItem<String>(value: item, child: Text(item, style: const TextStyle(fontFamily: 'Kalam'),)))
                 .toList(),
             onChanged: (item) => setState(() => selectedPetType = item),
           ),
@@ -244,7 +244,6 @@ class _AdAdvertState extends State<AdAdvert> {
 
 
   imagePicker(double heightImage) {
-    print(heightImage);
     return Container(
       height: heightImage,
       child: Column(
@@ -258,7 +257,7 @@ class _AdAdvertState extends State<AdAdvert> {
           ),
           Expanded(
             child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 4, mainAxisSpacing: 5,crossAxisSpacing: 5),
                 itemCount: multipleImages.length,
                 itemBuilder: (context, index) {
@@ -279,7 +278,7 @@ class _AdAdvertState extends State<AdAdvert> {
     if (picked.isNotEmpty) {
       setState(() {
         multipleImages = picked.map((e) => File(e.path)).toList();
-        if (multipleImages.length > 0){
+        if (multipleImages.isNotEmpty){
           heightImage = 160.0;
         }
         if (multipleImages.length > 4){
