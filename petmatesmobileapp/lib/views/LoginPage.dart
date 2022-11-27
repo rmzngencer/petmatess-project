@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:petmatesmobileapp/constants/ReusableWidgets.dart';
+import 'package:petmatesmobileapp/views/RegisterPage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -9,39 +10,43 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  TextEditingController mailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        BackgroundImage(),
         Scaffold(
           appBar: ReusableWidgets.getAppBar(context),
           backgroundColor: Colors.transparent,
           body: Center(
-            child: Column(
-              children: const [
-                Padding(
-                  padding: EdgeInsets.all(50),
-                  child: TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'E-mail',
-                      hintText: 'Enter e-mail',
-                    ),
+            child: Container(
+              padding: EdgeInsets.all(50),
+              child: Column(
+                children:  [
+                  ReusableWidgets.padding40top(),
+                  ReusableWidgets.editText("Enter E-Mail", mailController),
+                  ReusableWidgets.padding20top(),
+                  ReusableWidgets.editText("Password", passwordController, obscureText: true),
+                  ReusableWidgets.padding40top(),
+                  ReusableWidgets.buttonPurpleElevated("Login", 200, () => {
+                  }
                   ),
-                ),Padding(
-                  padding: EdgeInsets.all(50),
-                  child: TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Password',
-                      hintText: 'Enter Password',
-                    ),
-                  ),
-                ),
-              ],
+                  ReusableWidgets.padding20top(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("If you have not any account,"),
+                      TextButton(onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const RegisterPage()),
+                        );
+                      }, child: Text("Sign Up")),
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         )
@@ -50,22 +55,3 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 
-class BackgroundImage extends StatelessWidget {
-  const BackgroundImage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    var height = MediaQuery.of(context).size.height;
-    return Scaffold(
-      body: Container(
-        height: height,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/images/Pattern.png"),
-            fit: BoxFit.cover,
-          ),
-        ),
-      ),
-    );
-  }
-}

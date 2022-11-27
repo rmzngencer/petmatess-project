@@ -142,8 +142,9 @@ class ReusableWidgets {
     );
   }
 
-  static editText(String label, TextEditingController textController, {int maxLines=1}) {
+  static editText(String label, TextEditingController textController, {int maxLines=1, bool obscureText = false}) {
     return TextField(
+      obscureText: obscureText,
       maxLines: maxLines,
       controller: textController,
       decoration: InputDecoration(
